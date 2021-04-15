@@ -25,5 +25,31 @@ export const Container = styled.div`
         padding-left:  30px; 
     }
 `
+interface BtnProps {
+    primary?: string,
+    big?: boolean,
+    fontBig?: boolean,
+}
+export const Button = styled.button`
+
+    border-radius: 4px;
+    background: ${(props: BtnProps) => (props.primary ? '#4b59f7' : '#0467fb')};
+    white-space: nowrap;
+    padding: ${(props: BtnProps) => (props.big ? '12px 86px' : '10px 20px')};
+    color: #fff;
+    font-size: ${(props: BtnProps) => (props.fontBig ? '20px' : '16px')};
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        transition: all 0.3s ease-out;
+        background: ${(props: BtnProps) => (props.primary ? '#0467fb' : '#4b59f7')};
+    }
+
+    @media screen and (max-width:960 ) {
+        width: 100%;
+    }
+`
 
 export default GlobalStyle

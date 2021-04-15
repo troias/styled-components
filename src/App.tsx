@@ -1,20 +1,23 @@
 import {
   BrowserRouter as Router,
-  Switch,
+  Switch, Route
 
 } from "react-router-dom";
+import Home from './pages/HomePage/Home'
 import GlobalStyle from './globalStyle'
-import { Navbar } from './components'
+import { Navbar, Footer } from './components'
 
 function App() {
   return (
     <Router>
-       <Switch>
-      <Navbar />
-      <GlobalStyle/>
+       <GlobalStyle/>
      
+      <Navbar />
+      <Switch>
+      <Route path="/" exact component={Home} />
 
       </Switch>
+      <Footer/>
     </Router>
 
   );

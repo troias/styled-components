@@ -3,9 +3,13 @@ import { ImHome2 } from "react-icons/im";
 import { Container } from '../../globalStyle'
 import { Link } from "react-router-dom";
 
+interface keyable {
+    [key: string]: any  
+}
+
 export const Nav = styled.nav` 
 
-background: red;    
+background: #101522;    
 height: 80px;
 display: flex;
 justify-content: center;
@@ -16,7 +20,7 @@ top: 0;
 z-index: 999;
 
 &:hover {
-    color:red;
+    color:#101522;
 }
 `
 
@@ -57,23 +61,28 @@ display: none;
 }
 `
 
+interface IProps{
+    click?: boolean
+  }
+  
 export const NavMenu = styled.ul`
+
     display: flex;
     align-items: center;
     list-style: none;
     text-align: center;
 
     @media screen and (max-width: 960px) {
-        display: flex:
+        display: flex;
         flex-direction: column;
         width: 100%;
         height: 90vh;
         position: absolute;
         top: 80px;
-        left:${({ click }) => (click ? 0 : '-100%')};
+        left: ${(props: IProps) => (props.click ? 0 : '-150%')};
         opacity: 1;
         transition: all 0.5s ease;
-        background: #101522
+        background: #101522;
     }
 `
 
@@ -93,7 +102,7 @@ border-bottom: 2px solid transparent;
 `
 
 export const NavLinks = styled(Link)`  
-    color: fff;
+    color: #fff;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -112,4 +121,27 @@ export const NavLinks = styled(Link)`
         }
     }
 
+`
+
+export const NavItemBTn = styled.li` 
+    @media screen and (max-width: 960) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 120px;
+
+    }
+`
+
+export const NavItemBTnLink = styled(Link)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; 
+    padding: 8px 16px; 
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
 `

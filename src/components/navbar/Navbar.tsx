@@ -1,7 +1,9 @@
 
-import { useState } from 'react'
+import { truncate } from 'node:fs'
+import { useState, useEffect } from 'react'
 import { FaTimes, FaBars } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
+import { Button } from '../../globalStyle'
 import {
     Nav,
     NavbarContainer,
@@ -10,16 +12,36 @@ import {
     MobileIcon,
     NavMenu,
     NavItem,
-    NavLinks
+    NavLinks,
+    NavItemBTn,
+    NavItemBTnLink
 } from './Navbar.elements'
+
+
 
 
 
 const Navbar = () => {
 
     const [click, setClick] = useState(false)
+    const [button, setButton] = useState(true)
+    useEffect(() => {
+        showButton()
+    }, [])
+
+    const showButton = () => {
+        if (window.innerWidth <= 960) {
+            setButton(false)
+        } else {
+            setButton(true)
+        }
+    }
+
+    window.addEventListener('resize', showButton)
 
     const handleClick = () => setClick(!click)
+
+
 
     return (
         <>
@@ -37,27 +59,50 @@ const Navbar = () => {
 
                         </MobileIcon>
 
-                        <NavMenu onClick={handleClick}>
+                        <NavMenu onClick={handleClick} click={click}>
+
                             <NavItem>
                                 <NavLinks to='/'>
                                     Home
-                           </NavLinks>
+                                </NavLinks>
                             </NavItem>
+
                             <NavItem>
                                 <NavLinks to='/services'>
                                     Services
-                           </NavLinks>
+                                </NavLinks>
                             </NavItem>
+
                             <NavItem>
                                 <NavLinks to='/products'>
                                     Products
                            </NavLinks>
+
                             </NavItem>
+
                             <NavItem>
                                 <NavLinks to='/'>
                                     Home
-                           </NavLinks>
+                                </NavLinks>
                             </NavItem>
+                            <NavItemBTn>
+                                {Button ? (
+                                    <NavItemBTnLink to="/sign-up">
+                                        <Button >
+                                            SIGN UP
+                                        </Button>
+                                    </NavItemBTnLink>
+                                ) : (
+                                    <NavItemBTnLink to="/sign-up">
+                                        <Button >
+                                            SIGN UP
+                                        </Button>
+                                    </NavItemBTnLink>
+                                )
+
+                                }
+
+                            </NavItemBTn>
                         </NavMenu>
                     </NavbarContainer>
                 </Nav>
