@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { FaHouseDamage} from 'react-icons/fa'
 
 export const FooterContainer = styled.div`
 
@@ -114,4 +115,79 @@ export const FooterLink = styled(Link)`
         transition: 0.3s ease-out
     }
 `
+
+export const SocialMedia = styled.section`
+    max-width: 1000px;
+    width: 100%;
+
+`
+
+export const SocialMediaWrap = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+
+    @media screen and (max-width: 820px) {
+        flex-direction: column;
+    }
+`
+
+export const SocialLogo = styled(Link)` 
+    color: #fff;
+    justify-self: started;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+`
+
+export const SocialIcon = styled(FaHouseDamage)`
+    margin-right: 10px;
+
+`
+  
+export const WebSiteRights = styled.small`
+    color: #fff;
+    margin-bottom: 16px;
+`
+
+export const SocialIcons = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+`
+
+export const SocialIconLink = styled.a`
+    color: #fff;
+    font-size: 24px;
+
+`
+
+export const FaFacebook = styled.a`
+
+`
+
+// export const FaInstagram = styled.a`
+
+// `
+
+// export const FaYoutube = styled.a`
+
+// `
+
+// export const FaTwitter = styled.a`
+
+// `
+
+// export const FaLinkedin = styled.a`
+
+
+// `
+
 

@@ -26,7 +26,7 @@ export const Container = styled.div`
     }
 `
 interface BtnProps {
-    primary?: string,
+    primary?: boolean,
     big?: boolean,
     fontBig?: boolean,
 }
